@@ -8,6 +8,6 @@ import java.util.ArrayList;
  */
 public interface Builder {
     
-    public ArrayList<Integer> build (int pos, Instance instance, Solution solution);
+    public ArrayList<Integer> build (int pos, Solution solution);
     
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package edp;
 
 import java.util.ArrayList;
@@ -14,8 +10,8 @@ import java.util.ArrayList;
 public class DijkstraBuilder implements Builder{
     
     @Override
-    public ArrayList<Integer> build(int pos, Instance instance, Solution solution) {
-        
+    public ArrayList<Integer> build(int pos, Solution solution) {
+        Instance instance = solution.getI();
         int start = solution.getI().getNodeMatrix().get(pos)[0];
         int end = solution.getI().getNodeMatrix().get(pos)[1];
         if (start== 5000){

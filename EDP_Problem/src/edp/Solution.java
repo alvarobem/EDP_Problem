@@ -12,12 +12,14 @@ public class Solution {
     private ArrayList<ArrayList<Integer>> routes;
     private double time;
     Instance i ;
+    MyRandom random;
     
     public Solution(){
         conn=0;
         notConn=0;
         routes= new ArrayList<> ();
         time= 0 ;
+        random = new MyRandom();
     }
     
     public Solution(Solution solution){
@@ -26,6 +28,14 @@ public class Solution {
         this.routes = new ArrayList<>();
         this.routes.addAll(solution.getRoutes());
         this.i=solution.getI();
+    }
+
+    public MyRandom getRandom() {
+        return random;
+    }
+
+    public void setRandom(MyRandom random) {
+        this.random = random;
     }
 
     public double getTime() {
