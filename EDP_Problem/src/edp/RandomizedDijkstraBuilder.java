@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class RandomizedDijkstraBuilder implements Builder{
     @Override
-    public  ArrayList<Integer>  build (int pos, Solution s){
+    public ArrayList<Integer>  build (int pos, Solution s){
         MyRandom r = s.getRandom();
         int ini = s.getI().getNodeMatrix().get(pos)[0];
         int fin = s.getI().getNodeMatrix().get(pos)[1];

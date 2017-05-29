@@ -28,6 +28,7 @@ public class Solution {
         this.routes = new ArrayList<>();
         this.routes.addAll(solution.getRoutes());
         this.i=solution.getI();
+        this.random = solution.getRandom();
     }
 
     public MyRandom getRandom() {

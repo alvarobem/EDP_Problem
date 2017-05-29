@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * @author Alvaro Berrocal Martin - URJC
  */
 public class Utils {
-    
+    protected final static String  NAME_GRAPH = "instancias/AS-BA.R-Wax.v100e217.bb";
+    protected final static String NAME_MATRIX = "instancias/AS-BA.R-Wax.v100e217.rpairs.40.";       
     public static void printPaths (int[] preds, int origen, int dest, int[] distancias, ArrayList<Integer> del, Solution s) {
          if (distancias[dest]>=100000||distancias[dest]<0){ /*valor tomado como infinito*/
             s.addNotConn();
