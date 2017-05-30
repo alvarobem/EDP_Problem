@@ -1,4 +1,6 @@
 
+package edp;
+
 import edp.Algorithm;
 import edp.Builder;
 import edp.Instance;
@@ -13,36 +15,27 @@ import java.util.ArrayList;
  */
 public class VnsAlgorithm implements Algorithm{
     private final double PERCENTAGE = 0.5;
-    private Builder builder;
-    private Solution solution;
-    private LocalSearch localSearch;
-    private Instance instance;
-    private int numRep;
-            
-    public static class VnsAlgorithmCreator{
-        protected Builder builder;
-        protected LocalSearch localSearch;
-        protected Instance instance;
+    private final Builder builder;
+    private final LocalSearch localSearch;
+    private final int numRep;
+      
+    public static class Creator{
+        private final Builder builder;
+        private final LocalSearch localSearch;
         
        //Opcional parameters
-        protected Solution solution = null;
-        protected int numRep = 1;
+        private int numRep = 1;
         
-        public VnsAlgorithmCreator (Builder builder, LocalSearch localSearch, Instance instance){
+        public Creator (Builder builder, LocalSearch localSearch){
             this.builder = builder;
             this.localSearch = localSearch;
-            this.instance = instance;
         }
         
-        public VnsAlgorithmCreator setSolution(Solution solution){
-            this.solution = solution;
-            return this;
-        }
-        
-        public VnsAlgorithmCreator setNumRep (int numRep){
+        public Creator numRep (int numRep){
             this.numRep = numRep;
             return this;
         }
+        
         
         public VnsAlgorithm create(){
             return new VnsAlgorithm(this);
@@ -50,20 +43,19 @@ public class VnsAlgorithm implements Algorithm{
         
     }
     
-    public VnsAlgorithm (VnsAlgorithmCreator creator){
+    public VnsAlgorithm (Creator creator){
         this.builder = creator.builder;
         this.localSearch = creator.localSearch;
         this.numRep = creator.numRep;
-        this.solution = creator.solution;
-        this.instance = creator.instance;
     }
-
+    
     @Override
-    public Solution solve() {
+    public Solution solve(Instance instance, Solution solution) {
+        
         if (solution == null) {
             //create the first solution
+            solution = new Solution();
             Instance solutionInstance = new Instance(instance);
-            solution.setI(solutionInstance);
             solution.setI(solutionInstance);
             ArrayList<Integer> del;
             for (int i = 0; i < solutionInstance.getNodeMatrix().size(); i++) {
@@ -72,22 +64,24 @@ public class VnsAlgorithm implements Algorithm{
                 solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
             }
         }
-        double kMaxAux = solution.getConn() * PERCENTAGE;
+        Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);
+        double kMaxAux = improveSolution.getConn() * PERCENTAGE;
         int kMax = (int) kMaxAux;
         int i = 0;
         while (i <= kMax) {
-            Instance auxInstance = new Instance(instance);
-            solution.setI(auxInstance);
-            Solution VNSBestSolution = localSearch.improvementSolution(solution, numRep, builder, i);
-            if (!solution.isBetterOrEqual(VNSBestSolution)) {
-                solution = VNSBestSolution;
+            Instance auxInstance = new Instance(solution.getI());
+            improveSolution.setI(auxInstance);
+            Solution VNSBestSolution = localSearch.improvementSolution(improveSolution, numRep, builder, i);
+            if (!improveSolution.isBetterOrEqual(VNSBestSolution)) {
+                improveSolution = VNSBestSolution;
                 i = 0;
             }
-            if (solution.getConn() == solution.getI().getNodeMatrix().size()) {
+            if (improveSolution.getConn() == improveSolution.getI().getNodeMatrix().size()) {
                 i = kMax + 1;
             }
             i++;
         }
+        solution = improveSolution;
         return solution;
     }
     

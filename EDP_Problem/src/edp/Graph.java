@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Graph {
     private int [][]  adjacent; 
     private int nodes;
-    private boolean empty;
     final private  int MAX =100000;
     
     
@@ -22,7 +21,6 @@ public class Graph {
                 adjacent [i][j] = MAX;
             }
         }
-        empty=true;
     }
 
     public int[][] getAdjacent() {
@@ -37,9 +35,6 @@ public class Graph {
         this.adjacent = adjacent;
     }
 
-    public void setEmpty(boolean empty) {
-        this.empty = empty;
-    }
 
     public void setNodes(int nodes) {
         this.nodes = nodes;

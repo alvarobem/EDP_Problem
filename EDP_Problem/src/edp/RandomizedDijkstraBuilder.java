@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class RandomizedDijkstraBuilder implements Builder{
     @Override
     public ArrayList<Integer>  build (int pos, Solution s){
-        MyRandom r = s.getRandom();
         int ini = s.getI().getNodeMatrix().get(pos)[0];
         int fin = s.getI().getNodeMatrix().get(pos)[1];
         int [][] m = s.getI().getG().getAdjacent();
@@ -48,7 +47,7 @@ public class RandomizedDijkstraBuilder implements Builder{
          int men=v;
          
          for (; v<visitados.length; v++) {
-             int rand = (int) (r.nextInt(1000)) % 2;
+             int rand = (int) (MyRandom.nextInt(1000)) % 2;
             if (!(visitados[v]) && (costes[v]<costes[men]) && (costes[v]>0) && rand !=0)
                men = v;
          }
