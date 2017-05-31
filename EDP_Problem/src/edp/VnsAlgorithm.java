@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Alvaro Berrocal Martin - URJC
  */
 public class VnsAlgorithm implements Algorithm{
-    private final double PERCENTAGE = 0.5;
+    private final double percentage;
     private final Builder builder;
     private final LocalSearch localSearch;
     private final int numRep;
@@ -25,10 +25,15 @@ public class VnsAlgorithm implements Algorithm{
         
        //Opcional parameters
         private int numRep = 1;
+        private double percentage= 0.5;
         
         public Creator (Builder builder, LocalSearch localSearch){
             this.builder = builder;
             this.localSearch = localSearch;
+        }
+        public Creator percentage(double percentage){
+            this.percentage = percentage;
+            return this;
         }
         
         public Creator numRep (int numRep){
@@ -47,6 +52,7 @@ public class VnsAlgorithm implements Algorithm{
         this.builder = creator.builder;
         this.localSearch = creator.localSearch;
         this.numRep = creator.numRep;
+        this.percentage = creator.percentage;
     }
     
     @Override
@@ -54,6 +60,7 @@ public class VnsAlgorithm implements Algorithm{
         
         if (solution == null) {
             //create the first solution
+            System.out.println("Creando la primera solución");
             solution = new Solution();
             Instance solutionInstance = new Instance(instance);
             solution.setI(solutionInstance);
@@ -61,22 +68,26 @@ public class VnsAlgorithm implements Algorithm{
             for (int i = 0; i < solutionInstance.getNodeMatrix().size(); i++) {
                 del = builder.build(i, solution);
                 solution.addRoute(del);
-                solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
+                try {
+                    solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
         }
         Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);
-        double kMaxAux = improveSolution.getConn() * PERCENTAGE;
+        double kMaxAux = improveSolution.getConn() * percentage;
         int kMax = (int) kMaxAux;
         int i = 0;
+        System.out.println("Haciendo VNS...");
         while (i <= kMax) {
-            Instance auxInstance = new Instance(solution.getI());
-            improveSolution.setI(auxInstance);
             Solution VNSBestSolution = localSearch.improvementSolution(improveSolution, numRep, builder, i);
             if (!improveSolution.isBetterOrEqual(VNSBestSolution)) {
                 improveSolution = VNSBestSolution;
                 i = 0;
             }
-            if (improveSolution.getConn() == improveSolution.getI().getNodeMatrix().size()) {
+            if (improveSolution.getConn() >= improveSolution.getI().getNodeMatrix().size()) {
                 i = kMax + 1;
             }
             i++;

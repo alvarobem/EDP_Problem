@@ -128,7 +128,7 @@ public class Solution {
         }
     }
     
-    public void deletePair(int pos){
+    public int[] deletePair(int pos){
         ArrayList<Integer> route = this.getRoutes().get(pos);
         int [][] ad =this.i.getG().getAdjacent();
         for(int i =0 ; i<route.size()-1; i++){
@@ -142,6 +142,7 @@ public class Solution {
         this.i.deletePair(this.i.getNodeMatrix().get(pos));
         this.conn--;
         this.notConn ++;
+        return this.i.getNodeMatrix().get(pos);
     }
     
     public ArrayList <int []> getRoutesNotConected(){

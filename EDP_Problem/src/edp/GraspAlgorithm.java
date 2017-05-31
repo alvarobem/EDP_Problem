@@ -43,6 +43,7 @@ public class GraspAlgorithm  implements Algorithm{
 
     @Override
     public Solution solve(Instance instance, Solution solution) {
+        
         for (int contRep = 0; contRep < numRep; contRep++) {
             Solution bestSolution = new Solution();
             Instance solutionInstance = new Instance(instance);
@@ -52,11 +53,19 @@ public class GraspAlgorithm  implements Algorithm{
             for (int i = 0; i < solutionInstance.getNodeMatrix().size(); i++) {
                 del = builder.build(i, bestSolution);
                 bestSolution.addRoute(del);
-                solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
+                try {
+                    solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
+            //Instance instanceCopy = bestSolution.getI();
             //Local Search
             bestSolution= localSearch.improvementSolution(bestSolution, numRep, builder, 1);
+            //bestSolution.setI(instanceCopy);
             solution = bestSolution.whoIsBetter(solution);
+            
             
             if (solution.getConn() == solution.getI().getNodeMatrix().size()) {
                 break;
