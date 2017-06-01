@@ -18,6 +18,7 @@ public class Solution {
         notConn=0;
         routes= new ArrayList<> ();
         time= 0 ;
+        i = null;
     }
     
     public Solution(Solution solution){
@@ -139,10 +140,11 @@ public class Solution {
         }
         this.getRoutes().set(pos, new ArrayList<>());
         this.i.getG().setAdjacent(ad);
-        this.i.deletePair(this.i.getNodeMatrix().get(pos));
-        this.conn--;
-        this.notConn ++;
-        return this.i.getNodeMatrix().get(pos);
+        int [] ret = new int[2];
+        ret [0] = route.get(0);
+        ret [1] =route.get(route.size()-1);
+        
+        return ret;
     }
     
     public ArrayList <int []> getRoutesNotConected(){

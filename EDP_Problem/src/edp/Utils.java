@@ -55,29 +55,23 @@ public class Utils {
       
    }
     
-    public static int [][] deleteEdges (int [][] m, ArrayList<Integer> e) throws Exception{
-        for (int i = 0 ; i<e.size()-1; i++){
-            int a1= e.get(i);
-            int a2 = e.get(i+1);
-            if ((m[a1][a2]== -1)|| (m[a2][a1]== -1)){
-                throw new Exception ("Error en la solución: camino "+a1+" - " +a2+ " ya usado");
-                
-            }else{
-                m[a1][a2]= -1;
-                m[a2][a1]= -1;
-            }
-            
+    public static int[][] deleteEdges(int[][] m, ArrayList<Integer> e) {
+        for (int i = 0; i < e.size() - 1; i++) {
+            int a1 = e.get(i);
+            int a2 = e.get(i + 1);
+            m[a1][a2] = -1;
+            m[a2][a1] = -1;
         }
         return m;
     }
     
-    public static void writeFile(Solution s, String f) {
+    public static void writeFile(Solution s, String f, String algoritm) {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
             fichero = new FileWriter(f, true);
             pw = new PrintWriter(fichero);
-            pw.println(s.getI().getNameFile() + ";" + s.getConn() + ";" + s.getNotConn() + ";" + s.getTime());
+            pw.println(algoritm+s.getI().getNameFile() + ";" + s.getConn() + ";" + s.getNotConn() + ";" + s.getTime());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,7 +102,6 @@ public class Utils {
                 usedEdges.add(edge);
             }
         }
-        System.out.println(usedEdges.toString());
         return true;
         
     }

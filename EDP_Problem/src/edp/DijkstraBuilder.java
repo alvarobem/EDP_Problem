@@ -25,7 +25,7 @@ public class DijkstraBuilder implements Builder{
         boolean [] visitados= new boolean [n];
         int [] costes = new int [n];
         int ultimo []= new int [n]; // ultimo vertice que se visito
-        int [][] matrix = solution.getI().getG().getAdjacent();;
+        int [][] matrix = solution.getI().getG().getAdjacent();
         for (int i=0; i<n ; i++){
             visitados [i]=false;
             costes [i] = matrix[start][i];

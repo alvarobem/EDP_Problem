@@ -76,23 +76,22 @@ public class VnsAlgorithm implements Algorithm{
                 }
             }
         }
-        Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);
-        double kMaxAux = improveSolution.getConn() * percentage;
+        //Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);
+        double kMaxAux = solution.getConn() * percentage;
         int kMax = (int) kMaxAux;
-        int i = 0;
+        int i = 1;
         System.out.println("Haciendo VNS...");
         while (i <= kMax) {
-            Solution VNSBestSolution = localSearch.improvementSolution(improveSolution, numRep, builder, i);
-            if (!improveSolution.isBetterOrEqual(VNSBestSolution)) {
-                improveSolution = VNSBestSolution;
+            Solution VNSBestSolution = localSearch.improvementSolution(solution, numRep, builder, i);
+            if (!solution.isBetterOrEqual(VNSBestSolution)) {
+                solution = VNSBestSolution;
                 i = 0;
             }
-            if (improveSolution.getConn() >= improveSolution.getI().getNodeMatrix().size()) {
+            if (solution.getConn() >= solution.getI().getNodeMatrix().size()) {
                 i = kMax + 1;
             }
             i++;
         }
-        solution = improveSolution;
         return solution;
     }
     

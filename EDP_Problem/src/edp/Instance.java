@@ -4,7 +4,9 @@ package edp;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.annotation.processing.FilerException;
 
 /**
  *
@@ -95,9 +97,10 @@ public class Instance {
      */
     public void ReadGraph() {
         int [][] ad;
+        FileReader fr = null;
         try {
             fileGraph = new File(nameGraph);
-            FileReader fr = new FileReader(fileGraph);
+            fr = new FileReader(fileGraph);
             BufferedReader br = new BufferedReader(fr);
 
             // Lectura del fichero
@@ -115,9 +118,17 @@ public class Instance {
                 ad [j][i]=1;
             }
             
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        } 
+        }finally{
+         try{                    
+            if( null != fr ){   
+               fr.close();     
+            }                  
+         }catch (Exception e2){ 
+            e2.printStackTrace();
+         }
+      } 
     }
     
     /**
@@ -136,9 +147,6 @@ public class Instance {
         return line_aux;
     }
 
-    /**
-     * 
-     */
     public void deletePair(int[] pair) {
         pair[0] = 5000; // nodo no existente
         pair[1] = 0 ;       
