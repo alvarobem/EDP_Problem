@@ -64,17 +64,7 @@ public class VnsAlgorithm implements Algorithm{
             solution = new Solution();
             Instance solutionInstance = new Instance(instance);
             solution.setI(solutionInstance);
-            ArrayList<Integer> del;
-            for (int i = 0; i < solutionInstance.getNodeMatrix().size(); i++) {
-                del = builder.build(i, solution);
-                solution.addRoute(del);
-                try {
-                    solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
+            solution = builder.build(0, numRep, solution);
         }
         //Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);
         double kMaxAux = solution.getConn() * percentage;

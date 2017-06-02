@@ -50,16 +50,7 @@ public class GraspAlgorithm  implements Algorithm{
             bestSolution.setI(solutionInstance);
             ArrayList<Integer> del;
             //create the first solution
-            for (int i = 0; i < solutionInstance.getNodeMatrix().size(); i++) {
-                del = builder.build(i, bestSolution);
-                bestSolution.addRoute(del);
-                try {
-                    solutionInstance.getG().setAdjacent(Utils.deleteEdges(solutionInstance.getG().getAdjacent(), del));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
+            bestSolution = builder.build(0, numRep, bestSolution);
             //Instance instanceCopy = bestSolution.getI();
             //Local Search
             bestSolution= localSearch.improvementSolution(bestSolution, numRep, builder, 1);

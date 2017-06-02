@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @author Alvaro Berrocal Martin - URJC
  */
 public class RandomizedDijkstraBuilder implements Builder{
-    @Override
-    public ArrayList<Integer>  build (int pos, Solution s){
+    
+    private ArrayList<Integer> doRandomizedDijkstra (int pos, Solution s){
         int ini = s.getI().getNodeMatrix().get(pos)[0];
         int fin = s.getI().getNodeMatrix().get(pos)[1];
         int [][] m = s.getI().getG().getAdjacent();
@@ -73,5 +73,26 @@ public class RandomizedDijkstraBuilder implements Builder{
         ArrayList<Integer> del = new ArrayList<>();
         Utils.printPaths (ultimo, ini,fin,  costes, del, s);
         return del;
+        
+    }
+    @Override
+    public Solution build(int pos, int numRep, Solution solution) {
+        Solution bestSol = new Solution(solution);
+        ArrayList<Integer> nodesToDelete = new ArrayList<>();
+        for (int aux = 0; aux < numRep; aux++) {
+            for (int j = 0; j < solution.getI().getNodeMatrix().size(); j++) {
+                nodesToDelete = doRandomizedDijkstra(pos, solution);
+                if (!nodesToDelete.isEmpty()) {
+                    solution.addRoute(nodesToDelete, j);
+                    solution.getI().getG().setAdjacent(Utils.deleteEdges(solution.getI().getG().getAdjacent(), nodesToDelete));
+                }
+                pos++;
+                if (pos >= solution.getI().getNodeMatrix().size()) {
+                    break;
+                }
+            }
+            bestSol = solution.whoIsBetter(bestSol);
+        }
+        return bestSol;
     }
 }
