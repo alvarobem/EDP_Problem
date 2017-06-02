@@ -20,6 +20,8 @@ public class BestImprovement implements LocalSearch{
     public Solution improvementSolution(Solution sol, int rep, Builder builder, int numDesc) {
         Solution bestSolution = new Solution(sol); 
         int size = bestSolution.getRoutes().size();
+        bestSolution.setConn(sol.getConn());
+        bestSolution.setNotConn(sol.getNotConn());
         ArrayList<int[]> matrixCopy;
         ArrayList<int[]> disconected = new ArrayList<>();
         int pos = 1;
@@ -70,26 +72,16 @@ public class BestImprovement implements LocalSearch{
                     auxBestSolution = auxSolution.whoIsBetter(auxBestSolution);
                 }
             }
-            int conn = auxBestSolution.getConn();
-            int newNotConn =sol.getNotConn()- auxBestSolution.getConn();
-            int newConn = auxBestSolution.getConn()+ sol.getConn();
-            auxBestSolution.setConn(newConn);
-            auxBestSolution.setNotConn(newNotConn);
+            
             matrixCopy = auxBestSolution.getI().getNodeMatrix();
-            if (conn>=1){
+            if (auxBestSolution.getConn()>=1){
                 for( int i =0; i<= rep; i++){
                     Solution aux = new Solution(auxBestSolution);
                     aux.setI(auxBestSolution.getI());
                     aux.getI().setNodeMatrix(disconected);
                     ArrayList<Integer> del = builder.build(0, aux);
-                    
                     if (!del.isEmpty()){
-                        
                         auxBestSolution.getI().getG().setAdjacent(Utils.deleteEdges(auxBestSolution.getI().getG().getAdjacent(), del));
-                        newNotConn = auxBestSolution.getNotConn() - aux.getConn();
-                        newConn = auxBestSolution.getConn()+ aux.getConn();
-                        auxBestSolution.setNotConn(newNotConn);
-                        auxBestSolution.setConn(newConn);
                         auxBestSolution.addRoute(del, pos-1);
                         break;
                     }
@@ -98,7 +90,12 @@ public class BestImprovement implements LocalSearch{
             }
             
             if (auxBestSolution.isBetter(bestSolution)){   
+                int newConn = bestSolution.getConn() + auxBestSolution.getConn();
+                int newNotConn = bestSolution.getNotConn() - auxBestSolution.getConn();
                 bestSolution = auxBestSolution;    
+                bestSolution.setConn(newConn);
+                bestSolution.setNotConn(newNotConn);
+                
             }
             pos ++;
             if (bestSolution.getConn()==sol.getI().getNodeMatrix().size()){

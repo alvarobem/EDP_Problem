@@ -80,7 +80,7 @@ public class EdpSolver {
             time = time / 1000;
             solution.setTime(time);
             if (Utils.isValidSolution(solution)){
-                System.out.println(solution.routesToString());
+                //System.out.println(solution.routesToString());
                 System.out.println("Conectados: "+solution.getConn()+" en : "+solution.getTime()+"s");
                 Utils.writeFile(solution, "salidas/"+nameOutput+".csv", nameAlgoritm);
             }else{
@@ -149,7 +149,7 @@ public class EdpSolver {
             case "4":
                 builderOption = sn.nextLine();
                 builder = ("1".equals(builderOption))? new DijkstraBuilder(): new RandomizedDijkstraBuilder();
-                nameAlgoritm = ("1".equals(builderOption))? "-Dijkstra": "-RandomizedDijkstra";
+                nameAlgoritm = ("1".equals(builderOption))? "Dijkstra-": "RandomizedDijkstra-";
                 useMeta = false;
         }
         

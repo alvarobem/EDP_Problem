@@ -3,10 +3,3 @@ instancias/AS-BA.R-Wax.v100e217.bb@instancias/AS-BA.R-Wax.v100e217.rpairs.10.
 instancias/AS-BA.R-Wax.v100e217.bb@instancias/AS-BA.R-Wax.v100e217.rpairs.25.
 instancias/bl-wr2-wht2.10-50.sdeg.bb@instancias/bl-wr2-wht2.10-50.sdeg.rpairs.50.
 instancias/bl-wr2-wht2.10-50.sdeg.bb@instancias/bl-wr2-wht2.10-50.sdeg.rpairs.125.
-instancias/bl-wr2-wht2.10-50.sdeg.bb@instancias/bl-wr2-wht2.10-50.sdeg.rpairs.125.
-instancias/graph3.bb@instancias/graph3.rpairs.16.
-instancias/graph3.bb@instancias/graph3.rpairs.41.
-instancias/graph3.bb@instancias/graph3.rpairs.65.
-instancias/graph4.bb@instancias/graph4.rpairs.43.
-instancias/mesh25x25.bb@instancias/mesh25x25.rpairs.62.
-instancias/mesh25x25.bb@instancias/mesh25x25.rpairs.250.
