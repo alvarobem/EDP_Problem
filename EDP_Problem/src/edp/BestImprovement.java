@@ -35,8 +35,11 @@ public class BestImprovement implements LocalSearch{
                 Instance auxInstance = new Instance(sol.getI());
                 Solution auxSolution = new Solution(sol);
                 auxSolution.setI(auxInstance);
+                if (auxBestSolution.getI()==null){
+                    auxBestSolution.setI(auxInstance);
+                }
                 ArrayList<int[]> notCon = auxBestSolution.getRoutesNotConected();
-
+                
                 while (countDesc < numDesc && auxPos < size) {
                     if (auxSolution.isRouteConected(auxPos - 1)) {
                         disconected.add(auxSolution.deletePair(auxPos - 1));
@@ -48,24 +51,43 @@ public class BestImprovement implements LocalSearch{
                 matrixCopy = auxSolution.getI().getNodeMatrix();
                 auxSolution.getI().setNodeMatrix(notCon);
             
-                Solution newSolution = builder.build(0, numDesc, auxSolution);
+                builder.build(0, numDesc, auxSolution);
             
-                newSolution.getI().setNodeMatrix(matrixCopy);
-                auxBestSolution = newSolution.whoIsBetter(auxBestSolution);
-                matrixCopy = auxBestSolution.getI().getNodeMatrix();
+                
+                auxBestSolution = auxSolution.whoIsBetter(auxBestSolution);
+                
                 
                 if (auxBestSolution.getConn()>=1){
                     Solution aux = new Solution(auxBestSolution);
                     aux.setI(auxBestSolution.getI());
                     aux.getI().setNodeMatrix(disconected);
-                    
+                    builder.build(0, numDesc, aux);
                     auxBestSolution.getI().setNodeMatrix(matrixCopy);
-                }
-
-                if (auxBestSolution.isBetter(bestSolution)) {
+                    if (aux.getConn()>0) {
+                        int newConn = auxBestSolution.getConn() + aux.getConn();
+                        int newNotConn = auxBestSolution.getNotConn() - aux.getConn();
+                        //bestSolution.getI().setNodeMatrix(auxBestSolution.getI().getNodeMatrix());
+                        for (ArrayList<Integer> route : aux.getRoutes()){
+                            if (route.size()>0){
+                                auxBestSolution.getI().getG().setAdjacent(Utils.deleteEdges(auxBestSolution.getI().getG().getAdjacent(), route));
+                            }
+                        }
+                        auxBestSolution.setConn(newConn);
+                        auxBestSolution.setNotConn(newNotConn);
+                    } 
+                }   
+                if (auxBestSolution.getConn()>0) {
                     int newConn = bestSolution.getConn() + auxBestSolution.getConn();
                     int newNotConn = bestSolution.getNotConn() - auxBestSolution.getConn();
-                    bestSolution = auxBestSolution;
+                    //bestSolution.getI().setNodeMatrix(auxBestSolution.getI().getNodeMatrix());
+                    if (bestSolution.getI() == null){
+                            bestSolution.setI(new Instance(sol.getI()));
+                        }
+                    for (ArrayList<Integer> route : auxBestSolution.getRoutes()){
+                            if (route.size()>0){
+                                bestSolution.getI().getG().setAdjacent(Utils.deleteEdges(bestSolution.getI().getG().getAdjacent(), route));
+                            }
+                    }
                     bestSolution.setConn(newConn);
                     bestSolution.setNotConn(newNotConn);
 

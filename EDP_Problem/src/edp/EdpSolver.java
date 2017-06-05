@@ -147,6 +147,7 @@ public class EdpSolver {
                 solution = new Solution();
                 break;
             case "4":
+                printBuilderMenu();
                 builderOption = sn.nextLine();
                 builder = ("1".equals(builderOption))? new DijkstraBuilder(): new RandomizedDijkstraBuilder();
                 nameAlgoritm = ("1".equals(builderOption))? "Dijkstra-": "RandomizedDijkstra-";

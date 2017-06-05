@@ -8,6 +8,8 @@ import java.util.ArrayList;
  */
 public interface Builder {
     
-    public Solution build (int pos, int numRepm ,Solution solution);
+    
+    public void setIsFirstSolution (boolean b);
+    public void build (int pos, int numRepm ,Solution solution);
     
 }

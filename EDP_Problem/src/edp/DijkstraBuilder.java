@@ -9,6 +9,13 @@ import java.util.ArrayList;
  */
 public class DijkstraBuilder implements Builder{
     
+    private boolean isFirstSolution;
+
+    
+    public void setIsFirstSolution(boolean isFirstSolution) {
+        this.isFirstSolution = isFirstSolution;
+    }
+    
     
     public ArrayList<Integer> doDijkstra (int pos,  Solution solution) {
         Instance instance = solution.getI();
@@ -70,19 +77,29 @@ public class DijkstraBuilder implements Builder{
     }   
 
     @Override
-    public Solution build(int pos, int numRepm, Solution solution) {
+    public void build(int pos, int numRepm, Solution solution) {
         ArrayList<Integer> nodesToDelete = new ArrayList<>();
         for (int j = 0; j < solution.getI().getNodeMatrix().size(); j++) {
             nodesToDelete = doDijkstra(pos, solution);
             if (!nodesToDelete.isEmpty()) {
-                solution.addRoute(nodesToDelete, j);
+                if (isFirstSolution){
+                    solution.addRoute(nodesToDelete);
+                }else{
+                    solution.addRoute(nodesToDelete, j);
+                }
+                
                 solution.getI().getG().setAdjacent(Utils.deleteEdges(solution.getI().getG().getAdjacent(), nodesToDelete));
+            }else{
+                if (isFirstSolution){
+                    solution.addRoute(new ArrayList<>());
+                }else{
+                    solution.addRoute(new ArrayList<>(), j);
+                }
             }
             pos++;
             if (pos >= solution.getI().getNodeMatrix().size()) {
                 break;
             }
         }
-        return solution;
     } 
 }

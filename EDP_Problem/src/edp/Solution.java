@@ -26,7 +26,7 @@ public class Solution {
         this.notConn = 0;
         this.routes = new ArrayList<>();
         this.routes.addAll(solution.getRoutes());
-        this.i=solution.getI();
+        this.i=null;
     }
 
 
@@ -122,11 +122,27 @@ public class Solution {
     }
     
     public void mergueRoutes (Solution s){
+        ArrayList <int []> routes = this.getRoutesConected();
+       for (int i = 0; i< routes.size(); i++){
+           boolean routeFound = false;
+           int cont = 0;
+           while (!routeFound && this.getRoutes().get(i).size()>0){
+               if (isEqualPair(routes.get(i), s.i.getNodeMatrix().get(cont))){
+                   routeFound = true;
+                   s.getRoutes().set(cont, this.getRoutes().get(i));
+               }
+               cont++;
+           }
+       }
         for (int i=0; i < this.routes.size(); i++){
             if(this.getRoutes().get(i).size()==0){
                 this.getRoutes().set(i, s.getRoutes().get(i));
             }
         }
+    }
+    
+    public boolean isEqualPair (int [] a, int []b){
+        return (a[0]==b[0] && a[1]==b[1]) || (a[0]==b[1] && a[1]==b[0]);
     }
     
     public int[] deletePair(int pos){
@@ -152,6 +168,17 @@ public class Solution {
         for (int i =0; i< this.routes.size(); i++){
            ArrayList <Integer> r= routes.get(i);
            if (r.size()==0){
+               notConected.add(this.i.getNodeMatrix().get(i));
+           }
+        }
+        return notConected;
+    }
+    
+    public ArrayList <int []> getRoutesConected(){
+        ArrayList <int []> notConected = new ArrayList();
+        for (int i =0; i< this.routes.size(); i++){
+           ArrayList <Integer> r= routes.get(i);
+           if (r.size()>0){
                notConected.add(this.i.getNodeMatrix().get(i));
            }
         }

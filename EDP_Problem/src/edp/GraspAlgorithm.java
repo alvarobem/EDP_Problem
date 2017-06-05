@@ -50,7 +50,9 @@ public class GraspAlgorithm  implements Algorithm{
             bestSolution.setI(solutionInstance);
             ArrayList<Integer> del;
             //create the first solution
-            bestSolution = builder.build(0, numRep, bestSolution);
+            builder.setIsFirstSolution(true);
+            builder.build(0, numRep, bestSolution);
+            builder.setIsFirstSolution(false);
             //Instance instanceCopy = bestSolution.getI();
             //Local Search
             bestSolution= localSearch.improvementSolution(bestSolution, numRep, builder, 1);

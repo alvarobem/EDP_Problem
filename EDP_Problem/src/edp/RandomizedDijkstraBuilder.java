@@ -9,6 +9,13 @@ import java.util.ArrayList;
  */
 public class RandomizedDijkstraBuilder implements Builder{
     
+    private boolean isFirstSolution;
+
+    
+    public void setIsFirstSolution(boolean isFirstSolution) {
+        this.isFirstSolution = isFirstSolution;
+    }
+    
     private ArrayList<Integer> doRandomizedDijkstra (int pos, Solution s){
         int ini = s.getI().getNodeMatrix().get(pos)[0];
         int fin = s.getI().getNodeMatrix().get(pos)[1];
@@ -76,23 +83,35 @@ public class RandomizedDijkstraBuilder implements Builder{
         
     }
     @Override
-    public Solution build(int pos, int numRep, Solution solution) {
+    public void build(int pos, int numRep, Solution solution) {
         Solution bestSol = new Solution(solution);
+        int auxCont = pos;
         ArrayList<Integer> nodesToDelete = new ArrayList<>();
         for (int aux = 0; aux < numRep; aux++) {
             for (int j = 0; j < solution.getI().getNodeMatrix().size(); j++) {
-                nodesToDelete = doRandomizedDijkstra(pos, solution);
+                nodesToDelete = doRandomizedDijkstra(auxCont, solution);
                 if (!nodesToDelete.isEmpty()) {
-                    solution.addRoute(nodesToDelete, j);
+                    if (isFirstSolution){
+                        solution.addRoute(nodesToDelete);
+                    }else{
+                        solution.addRoute(nodesToDelete, j);
+                    }
                     solution.getI().getG().setAdjacent(Utils.deleteEdges(solution.getI().getG().getAdjacent(), nodesToDelete));
+                }else{
+                    if (isFirstSolution){
+                        solution.addRoute(new ArrayList<>());
+                    }else{
+                        solution.addRoute(new ArrayList<>(),j);
+                    }
                 }
-                pos++;
-                if (pos >= solution.getI().getNodeMatrix().size()) {
+                auxCont++;
+                if (auxCont >= solution.getI().getNodeMatrix().size()) {
                     break;
                 }
             }
             bestSol = solution.whoIsBetter(bestSol);
+            auxCont = pos;
         }
-        return bestSol;
+        solution = bestSol;
     }
 }

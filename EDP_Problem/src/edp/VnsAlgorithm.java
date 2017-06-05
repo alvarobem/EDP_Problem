@@ -64,7 +64,9 @@ public class VnsAlgorithm implements Algorithm{
             solution = new Solution();
             Instance solutionInstance = new Instance(instance);
             solution.setI(solutionInstance);
-            solution = builder.build(0, numRep, solution);
+            builder.setIsFirstSolution(true);
+            builder.build(0, numRep, solution);
+            builder.setIsFirstSolution(false);
         }
         //Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);
         double kMaxAux = solution.getConn() * percentage;
