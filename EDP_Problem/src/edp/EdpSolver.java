@@ -79,6 +79,7 @@ public class EdpSolver {
             time = end - start;
             time = time / 1000;
             solution.setTime(time);
+                   
             if (Utils.isValidSolution(solution)){
                 //System.out.println(solution.routesToString());
                 System.out.println("Conectados: "+solution.getConn()+" en : "+solution.getTime()+"s");

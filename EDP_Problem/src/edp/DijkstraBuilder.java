@@ -77,7 +77,7 @@ public class DijkstraBuilder implements Builder{
     }   
 
     @Override
-    public void build(int pos, int numRepm, Solution solution) {
+    public Solution build(int pos, int numRepm, Solution solution) {
         ArrayList<Integer> nodesToDelete = new ArrayList<>();
         for (int j = 0; j < solution.getI().getNodeMatrix().size(); j++) {
             nodesToDelete = doDijkstra(pos, solution);
@@ -101,5 +101,6 @@ public class DijkstraBuilder implements Builder{
                 break;
             }
         }
+        return solution;
     } 
 }

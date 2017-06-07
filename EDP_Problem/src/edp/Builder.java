@@ -10,6 +10,6 @@ public interface Builder {
     
     
     public void setIsFirstSolution (boolean b);
-    public void build (int pos, int numRepm ,Solution solution);
+    public Solution build (int pos, int numRepm ,Solution solution);
     
 }

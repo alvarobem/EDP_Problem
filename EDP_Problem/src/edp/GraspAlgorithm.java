@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class GraspAlgorithm  implements Algorithm{
     private final Builder builder;
-    private final LocalSearch localSearch;
+    private  LocalSearch localSearch;
     private final int numRep;
             
     public static class Creator{
@@ -43,21 +43,23 @@ public class GraspAlgorithm  implements Algorithm{
 
     @Override
     public Solution solve(Instance instance, Solution solution) {
-        
-        for (int contRep = 0; contRep < numRep; contRep++) {
             Solution bestSolution = new Solution();
             Instance solutionInstance = new Instance(instance);
             bestSolution.setI(solutionInstance);
             ArrayList<Integer> del;
             //create the first solution
             builder.setIsFirstSolution(true);
-            builder.build(0, numRep, bestSolution);
+            bestSolution=builder.build(0, numRep, bestSolution);
             builder.setIsFirstSolution(false);
+        for (int contRep = 0; contRep < numRep; contRep++) {
+            Solution partialSolution = new Solution(bestSolution);
+            partialSolution.setI(new Instance(bestSolution.getI()));
             //Instance instanceCopy = bestSolution.getI();
             //Local Search
-            bestSolution= localSearch.improvementSolution(bestSolution, numRep, builder, 1);
+            localSearch = new prueba();
+            partialSolution= localSearch.improvementSolution(partialSolution, numRep, builder, 1);
             //bestSolution.setI(instanceCopy);
-            solution = bestSolution.whoIsBetter(solution);
+            solution = partialSolution.whoIsBetter(solution);
             
             
             if (solution.getConn() == solution.getI().getNodeMatrix().size()) {

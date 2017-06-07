@@ -22,8 +22,8 @@ public class Solution {
     }
     
     public Solution(Solution solution){
-        this.conn=0;
-        this.notConn = 0;
+        this.conn=solution.getConn();
+        this.notConn = solution.getNotConn();
         this.routes = new ArrayList<>();
         this.routes.addAll(solution.getRoutes());
         this.i=null;
@@ -121,25 +121,7 @@ public class Solution {
         return (this.conn>s.conn)? this: s;
     }
     
-    public void mergueRoutes (Solution s){
-        ArrayList <int []> routes = this.getRoutesConected();
-       for (int i = 0; i< routes.size(); i++){
-           boolean routeFound = false;
-           int cont = 0;
-           while (!routeFound && this.getRoutes().get(i).size()>0){
-               if (isEqualPair(routes.get(i), s.i.getNodeMatrix().get(cont))){
-                   routeFound = true;
-                   s.getRoutes().set(cont, this.getRoutes().get(i));
-               }
-               cont++;
-           }
-       }
-        for (int i=0; i < this.routes.size(); i++){
-            if(this.getRoutes().get(i).size()==0){
-                this.getRoutes().set(i, s.getRoutes().get(i));
-            }
-        }
-    }
+    
     
     public boolean isEqualPair (int [] a, int []b){
         return (a[0]==b[0] && a[1]==b[1]) || (a[0]==b[1] && a[1]==b[0]);
@@ -174,15 +156,63 @@ public class Solution {
         return notConected;
     }
     
-    public ArrayList <int []> getRoutesConected(){
-        ArrayList <int []> notConected = new ArrayList();
+    public ArrayList <ArrayList<Integer>> getRoutesConected(){
+        ArrayList <ArrayList<Integer>> notConected = new ArrayList<>();
         for (int i =0; i< this.routes.size(); i++){
            ArrayList <Integer> r= routes.get(i);
            if (r.size()>0){
-               notConected.add(this.i.getNodeMatrix().get(i));
+               notConected.add(routes.get(i));
            }
         }
         return notConected;
     }
     
+    public int[] disconectRoute (ArrayList<Integer> route){
+        int[] pair = new int [2];
+        pair [0] = route.get(0);
+        pair[1]= route.get(route.size()-1);
+        int [][] ad =this.i.getG().getAdjacent();
+        for(int i =0 ; i<route.size()-1; i++){
+            int node1 = route.get(i);
+            int node2 = route.get(i+1);
+            ad[node1][node2]=1;
+            ad[node2][node1]=1;
+        }
+        boolean routeFound = false;
+        int pos = 0;
+        while (!routeFound && pos<this.getRoutes().size()){
+            ArrayList<Integer> routeSearch = this.getRoutes().get(pos);
+            if (!routeSearch.isEmpty()){
+                int[] pairSearch = new int [2];
+                pairSearch [0] = routeSearch.get(0);
+                pairSearch[1]= routeSearch.get(routeSearch.size()-1);
+                if (isEqualPair(pair, pairSearch)){
+                    routeFound = true;
+                    this.getRoutes().remove(pos);
+                }
+            }
+            pos ++;
+        }  
+        this.conn--;
+        this.notConn++;
+        this.i.getG().setAdjacent(ad);
+        return pair;
+    }
+    
+    public boolean isPairConected(int a, int b){
+        boolean connected = false;
+        int[] pair = new int [2];
+        pair[0]=a;
+        pair[1]=b;
+        for (ArrayList<Integer> route : this.getRoutes()){
+            int[] pairSearch = new int [2];
+                pairSearch [0] = route.get(0);
+                pairSearch[1]= route.get(route.size()-1);
+            if (isEqualPair(pairSearch, pair)){
+                connected = true;
+                break;
+            }
+        }
+        return connected;
+    }
 }
