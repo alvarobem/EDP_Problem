@@ -1,14 +1,4 @@
-
 package edp;
-
-import edp.Algorithm;
-import edp.Builder;
-import edp.Instance;
-import edp.LocalSearch;
-import edp.Solution;
-import edp.Utils;
-import java.util.ArrayList;
-
 /**
  *
  * @author Alvaro Berrocal Martin - URJC

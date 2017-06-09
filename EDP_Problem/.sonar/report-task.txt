@@ -1,0 +1,6 @@
+projectKey=EDP.FINAL
+serverUrl=http://localhost:9000
+serverVersion=6.4.0.25310
+dashboardUrl=http://localhost:9000/dashboard/index/EDP.FINAL
+ceTaskId=AVxqBtnKdwu3Se8k2vTG
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVxqBtnKdwu3Se8k2vTG
