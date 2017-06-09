@@ -46,7 +46,6 @@ public class GraspAlgorithm  implements Algorithm{
             Solution bestSolution = new Solution();
             Instance solutionInstance = new Instance(instance);
             bestSolution.setI(solutionInstance);
-            ArrayList<Integer> del;
             //create the first solution
             builder.setIsFirstSolution(true);
             bestSolution=builder.build(0, numRep, bestSolution);

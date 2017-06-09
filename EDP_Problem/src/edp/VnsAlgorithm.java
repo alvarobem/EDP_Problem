@@ -1,4 +1,7 @@
+
 package edp;
+
+
 /**
  *
  * @author Alvaro Berrocal Martin - URJC
@@ -52,10 +55,9 @@ public class VnsAlgorithm implements Algorithm{
             //create the first solution
             System.out.println("Creando la primera solución");
             solution = new Solution();
-            Instance solutionInstance = new Instance(instance);
-            solution.setI(solutionInstance);
+            solution.setI(new Instance(instance));
             builder.setIsFirstSolution(true);
-            builder.build(0, numRep, solution);
+            solution=builder.build(0, numRep, solution);
             builder.setIsFirstSolution(false);
         }
         //Solution improveSolution = localSearch.improvementSolution(solution, numRep, builder, 1);

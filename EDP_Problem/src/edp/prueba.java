@@ -18,9 +18,6 @@ public class prueba implements LocalSearch {
     @Override
     public Solution improvementSolution(Solution sol, int rep, Builder builder, int numDesc) {
 
-        
-        ArrayList<int[]> disconected = new ArrayList<>();
-
         ArrayList<ArrayList<Integer>> routes = sol.getRoutesConected();
         
         Collections.shuffle(routes, new Random(6));
@@ -31,7 +28,6 @@ public class prueba implements LocalSearch {
             partialSolution.setI(new Instance(sol.getI()));
             for (int contDesc = 0; contDesc < numDesc; contDesc++) {
                 int routeToDes = (pos + contDesc) % routes.size();
-                disconected.add(partialSolution.disconectRoute(routes.get(routeToDes)));
             }
             partialSolution = builder.build(0, numDesc, partialSolution);    
             if (partialSolution.isBetter(bestSolution)){

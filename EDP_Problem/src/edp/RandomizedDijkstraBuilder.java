@@ -10,6 +10,7 @@ public class RandomizedDijkstraBuilder implements Builder {
 
     private boolean isFirstSolution;
 
+    @Override
     public void setIsFirstSolution(boolean isFirstSolution) {
         this.isFirstSolution = isFirstSolution;
     }
@@ -85,10 +86,10 @@ public class RandomizedDijkstraBuilder implements Builder {
     }
 
     @Override
-    public Solution build(int pos, int numRep, Solution solution) {
+    public Solution build(int pos, int numRep, final Solution solution) {
         Solution bestSol = new Solution(solution);
         bestSol.setI(new Instance(solution.getI()));
-        ArrayList<Integer> nodesToDelete = new ArrayList<>();
+        ArrayList<Integer> nodesToDelete;
         for (int aux = 0; aux < numRep; aux++) {
             Solution partialSolution = new Solution(solution);
             partialSolution.setI(new Instance(solution.getI()));

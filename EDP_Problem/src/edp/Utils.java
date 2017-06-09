@@ -71,7 +71,7 @@ public class Utils {
         try {
             fichero = new FileWriter(f, true);
             pw = new PrintWriter(fichero);
-            pw.println(algoritm+s.getI().getNameFile() + ";" + s.getConn() + ";" + s.getNotConn() + ";" + s.getTime()+";"+s.getRoutes());
+            pw.println(algoritm+s.getI().getNameFile() + ";" + s.getConn() + ";" + s.getNotConn() + ";" + s.getTime());
 
         } catch (Exception e) {
             e.printStackTrace();
