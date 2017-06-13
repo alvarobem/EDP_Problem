@@ -20,23 +20,35 @@ public class BestImprovement implements LocalSearch {
 
         ArrayList<ArrayList<Integer>> routes = sol.getRoutesConected();
         
-        Collections.shuffle(routes, new Random(6));
+        Collections.shuffle(routes, MyRandom.getInstance().getRandom());
         Solution bestSolution = new Solution(sol);
         bestSolution.setI(new Instance(sol.getI()));
+        ArrayList <int[]> deletedPairs;
         for (int pos = 0; pos < routes.size(); pos++) {
+            deletedPairs = new ArrayList<>();
             Solution partialSolution = new Solution(sol);
             partialSolution.setI(new Instance(sol.getI()));
+            ArrayList <int[]> pairsNotConn = (ArrayList <int[]>)partialSolution.getPairsNotConn();
             for (int contDesc = 0; contDesc < numDesc; contDesc++) {
                 int routeToDes = (pos + contDesc) % routes.size();
+                deletedPairs.add(partialSolution.disconectRoute(routes.get(routeToDes))) ;
             }
-            partialSolution = builder.build(0, numDesc, partialSolution);    
-            if (partialSolution.isBetter(bestSolution)){
+            ArrayList <int[]> copyMatrix = partialSolution.getI().getNodeMatrix();
+            partialSolution.getI().setNodeMatrix(pairsNotConn);
+            partialSolution = builder.build(0, numDesc, partialSolution); 
+            partialSolution.getI().setNodeMatrix(copyMatrix);
+            if (partialSolution.isBetterOrEqual(bestSolution)){
+                partialSolution.getI().setNodeMatrix(deletedPairs);
                 partialSolution = builder.build(0, numDesc, partialSolution);
-                int newConn = partialSolution.getConn();
-                int newNotConn = bestSolution.getNotConn() - (partialSolution.getConn() -bestSolution.getConn());
-                bestSolution = partialSolution;
-                bestSolution.setConn(newConn);
-                bestSolution.setNotConn(newNotConn);
+                partialSolution.getI().setNodeMatrix(copyMatrix);
+                if(partialSolution.isBetter(bestSolution)){
+                    int newConn = partialSolution.getConn();
+                    int newNotConn = bestSolution.getNotConn() - (partialSolution.getConn() -bestSolution.getConn());
+                    bestSolution = partialSolution;
+                    bestSolution.setConn(newConn);
+                    bestSolution.setNotConn(newNotConn);
+                }
+                
             }
         }
 

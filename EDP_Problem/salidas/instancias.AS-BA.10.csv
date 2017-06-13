@@ -1,20 +1,100 @@
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.1;6;4;0.01;[[21, 17, 13, 15, 6, 2, 5, 96, 91, 93, 95], [55, 16, 18, 41, 49, 40], [47, 42, 79, 70, 73, 16, 38, 31, 34, 54, 52, 53, 56, 65, 68, 67], [27, 23, 22, 6, 9, 42, 43, 44], [84, 89, 85, 1, 32, 33, 39, 36, 97], [8, 6]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.2;7;3;0.005;[[99, 92, 97, 36, 35, 34, 54, 52, 59], [79, 70, 73, 16, 10], [54, 51, 55, 16, 18, 14, 81], [20, 29, 21, 17, 13, 60, 66, 65, 56, 58, 57], [78, 79, 42, 9, 6, 2, 1, 85, 89, 80], [4, 8, 6, 22, 26, 27], [76, 72, 77]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.3;5;5;0.006;[[76, 70, 79, 42, 9, 6, 22, 26, 20], [2, 1, 32, 33, 35, 34, 54], [31, 38, 16, 10, 17, 21], [80, 84, 83, 81, 14, 18, 16, 73, 75], [11, 10, 15, 6, 8, 5]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.4;7;3;0.005;[[54, 34, 35, 36, 97, 94, 96], [26, 27, 24], [22, 6, 2, 1, 85, 86, 87], [7, 5, 1, 32, 33, 35], [67, 60, 13, 10, 14, 81, 83, 89, 85], [14, 12], [12, 10, 15, 6, 9, 42]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.5;8;2;0.005;[[32, 38, 16, 73], [49, 41, 18, 10, 13, 60, 66], [14, 10, 15, 13], [34, 31, 33, 32, 1, 2, 6, 22], [95, 99, 98], [62, 68, 65, 56, 53, 52, 54, 34, 35, 36, 97, 94, 91], [25, 29, 21, 17, 11, 12, 14], [80, 86, 85, 1, 5, 96, 91, 90]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.6;6;4;0.007;[[10, 15, 6, 2], [73, 16, 38, 30, 35, 36, 97, 92], [6, 22, 26, 20], [87, 86, 85, 1, 5, 7, 9, 42, 79, 70], [56, 59, 51, 54, 34, 31, 33, 32, 1, 2, 8, 0], [24, 27, 21, 17, 13, 60, 67, 68, 61]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.7;6;4;0.005;[[88, 87, 86, 85, 1, 5, 96, 94, 99], [96, 91, 93, 98, 97, 36, 35, 30, 38, 16, 10, 11], [98, 99], [78, 79, 42, 9, 6, 15, 13, 60, 67, 69], [51, 59, 56, 65, 61, 63], [17, 10, 18, 16, 73, 75, 72, 78]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.8;8;2;0.005;[[65, 66, 60, 13, 10, 14, 81, 88, 87, 86], [20, 29, 21, 17, 10, 16, 55, 59, 56, 65, 61], [89, 85, 1, 2, 6, 9, 42, 43, 40], [70, 73, 16, 38, 30, 35, 36, 97, 92, 99], [45, 47, 42, 79, 70], [35, 33, 32, 1, 5, 7, 3], [84, 83], [17, 13, 15]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.9;9;1;0.005;[[43, 40, 49, 41, 18, 10], [43, 42, 79, 70, 73, 16, 38, 30, 39], [81, 83, 89, 85, 1, 5, 96, 91, 93], [41, 46, 47, 42, 9, 3], [62, 69, 66, 60, 13, 15, 6, 8, 4], [9, 0, 8], [90, 91, 94, 97, 36, 37], [52, 54, 34, 31, 33, 32, 1, 2, 8], [13, 17, 21, 27, 26, 22, 6, 2]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.10;8;2;0.005;[[21, 17, 19], [67, 60, 13, 10, 16, 73, 75, 77], [67, 68, 65, 56, 59, 55, 16, 18, 14, 81], [34, 35, 36, 97, 92, 93, 95], [20, 26, 22, 6, 15, 10, 18, 41, 46], [8, 0, 3], [53, 52, 54, 34, 31, 33, 32, 1, 2, 8], [45, 47, 42, 9, 7, 5, 1, 85]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.11;8;2;0.005;[[99, 92, 97, 36, 35, 34, 54, 51, 57], [90, 91, 94, 97], [65, 66, 60, 13, 15, 6, 8, 5, 96, 94, 98, 97], [45, 46, 41, 18, 16, 55, 59], [29, 26, 22, 6, 9, 3, 4], [1, 5, 7], [0, 8, 2, 5], [88, 81, 14, 10, 16, 73, 70, 79, 42]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.12;7;3;0.004;[[77, 75, 73, 16, 18], [14, 10, 16, 38, 32, 1], [56, 65, 66, 60], [21, 27, 23, 22, 6, 9, 3], [37, 36, 97, 94, 96, 5, 2, 6, 15, 10, 12], [23, 29, 21, 17, 10, 18, 41, 46, 47, 42, 9, 7, 8], [56, 58, 51, 54, 34, 35, 36]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.13;9;1;0.007;[[54, 51, 55, 16, 18, 41, 49], [37, 35, 34, 54, 52, 53, 56, 65, 68], [48, 43, 42, 9, 6, 15, 10, 11], [48, 47, 42, 79, 78, 74], [29, 21, 17, 10, 12], [18, 10, 13, 60, 67, 68], [93, 92, 97, 36, 35, 31, 38, 16, 10, 14, 12, 19], [24, 27, 23, 22, 6, 2, 1, 85], [95, 90, 91, 96]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.14;8;2;0.006;[[32, 38, 16, 73, 71], [61, 65, 56, 59, 51, 54], [40, 49, 41, 18, 10, 13, 60, 67, 68, 63], [12, 10], [39, 31, 34, 54, 52, 57], [66, 69, 64], [92, 94, 96, 5, 1, 85, 89], [90, 91, 94, 97, 36, 39, 30]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.15;8;2;0.005;[[10, 16, 38, 31], [84, 89], [32, 1, 2, 6, 15, 10, 17], [1, 5, 8, 6, 22], [12, 10, 18, 41, 46, 47, 42, 9, 7], [7, 3, 0], [85, 89, 83, 81, 14, 18, 16, 55, 51, 54, 34, 35, 36, 97, 94, 91], [60, 66]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.16;7;3;0.006;[[88, 81, 14, 10, 16, 73, 70, 79], [8, 0, 9, 42, 79, 71], [28, 27, 21, 17, 13, 60, 66, 69], [4, 8, 2], [1, 32], [31, 38, 16, 18, 14], [81, 83, 89, 85, 1, 5, 96, 94, 97, 36, 35, 34, 54, 52, 53, 56, 65]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.17;9;1;0.005;[[66, 60, 13, 10, 16, 38, 30, 37], [31, 33, 32, 1, 2], [15, 10, 12], [55, 51, 50], [95, 99], [96, 94, 97, 36, 35, 34, 54, 51], [77, 78, 79, 42, 43, 40], [97, 92, 93, 91, 96, 5, 7, 9, 42, 47, 45], [77, 72, 70, 79]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.18;6;4;0.006;[[43, 44, 49, 41, 18, 16, 55, 59, 56], [55, 51, 58, 56, 65, 66, 60, 13, 15, 6, 9, 42, 79, 70, 76], [7, 3, 0], [81, 88, 87], [87, 89, 83, 81, 14, 10, 16, 73, 70, 72, 74], [86, 85, 1, 2, 6, 22, 26, 29, 21, 17, 19]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.19;7;3;0.006;[[21, 17, 10, 18], [78, 72, 70, 73, 16, 55, 59, 56, 65, 68], [99, 94, 96, 5, 2, 6, 15], [8, 2, 1, 32, 38, 16, 10, 13, 60, 66], [79, 78, 74], [85, 86], [41, 46, 47, 42, 9, 6, 22]]
-GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.20;7;3;0.006;[[99, 92, 97, 36, 35, 34, 54], [2, 8, 0], [90, 91, 96, 5, 2, 6, 22, 26, 28], [71, 72], [79, 70, 73, 16, 18], [15, 10, 11], [63, 69, 66, 60, 13, 15, 6, 9, 42, 47]]
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.1;6;4;0.041
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.2;7;3;0.048
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.3;7;3;0.04
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.4;9;1;0.034
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.5;8;2;0.049
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.6;7;3;0.047
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.7;7;3;0.045
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.8;9;1;0.039
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.9;9;1;0.047
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.10;8;2;0.048
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.11;8;2;0.043
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.12;8;2;0.041
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.13;9;1;0.05
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.14;8;2;0.036
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.15;8;2;0.045
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.16;7;3;0.041
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.17;9;1;0.047
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.18;7;3;0.043
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.19;8;2;0.041
+GRASPinstancias/AS-BA.R-Wax.v100e217.rpairs.10.20;8;2;0.043
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.1;6;4;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.2;7;3;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.3;7;3;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.4;9;1;0.011
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.5;8;2;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.6;7;3;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.7;7;3;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.8;8;2;0.006
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.9;7;3;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.10;8;2;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.11;8;2;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.12;8;2;0.006
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.13;9;1;0.007
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.14;8;2;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.15;10;0;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.16;7;3;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.17;9;1;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.18;7;3;0.004
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.19;7;3;0.005
+VNS-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.20;8;2;0.004
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.1;7;3;0.057
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.2;7;3;0.032
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.3;7;3;0.042
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.4;9;1;0.05
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.5;8;2;0.064
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.6;7;3;0.034
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.7;7;3;0.032
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.8;9;1;0.054
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.9;9;1;0.047
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.10;8;2;0.046
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.11;8;2;0.05
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.12;9;1;0.076
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.13;9;1;0.064
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.14;8;2;0.065
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.15;10;0;0.022
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.16;7;3;0.032
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.17;9;1;0.056
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.18;7;3;0.036
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.19;8;2;0.051
+VNS-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.20;8;2;0.033
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.1;6;4;0.05
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.2;7;3;0.05
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.3;7;3;0.044
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.4;9;1;0.037
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.5;8;2;0.045
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.6;7;3;0.047
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.7;7;3;0.045
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.8;9;1;0.042
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.9;9;1;0.061
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.10;8;2;0.05
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.11;8;2;0.046
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.12;8;2;0.044
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.13;9;1;0.044
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.14;8;2;0.048
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.15;10;0;0.047
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.16;7;3;0.049
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.17;9;1;0.039
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.18;7;3;0.047
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.19;8;2;0.044
+Hibrido-Dijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.20;8;2;0.043
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.1;7;3;0.084
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.2;7;3;0.07
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.3;7;3;0.072
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.4;9;1;0.08
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.5;8;2;0.097
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.6;7;3;0.073
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.7;7;3;0.066
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.8;9;1;0.08
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.9;9;1;0.087
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.10;8;2;0.088
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.11;8;2;0.091
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.12;9;1;0.111
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.13;9;1;0.077
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.14;8;2;0.073
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.15;10;0;0.056
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.16;7;3;0.068
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.17;9;1;0.07
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.18;7;3;0.07
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.19;8;2;0.089
+Hibrido-RandomizedDijkstrainstancias/AS-BA.R-Wax.v100e217.rpairs.10.20;8;2;0.079

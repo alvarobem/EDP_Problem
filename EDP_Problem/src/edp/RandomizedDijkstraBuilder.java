@@ -26,44 +26,47 @@ public class RandomizedDijkstraBuilder implements Builder {
             return new ArrayList<>();
 
         }
-        int n = ins.getG().getNodes();
+        int numNodes = ins.getG().getNodes();
 
-        boolean[] visitados = new boolean[n];
-        int[] costes = new int[n];
-        int ultimo[] = new int[n]; // ultimo vertice que se visito
+        boolean[] visitados = new boolean[numNodes];
+        int[] costes = new int[numNodes];
+        int ultimo[] = new int[numNodes]; // ultimo vertice que se visito
         int[][] matrix = m;
-        for (int i = 0; i < n; i++) {
+        //inicializa
+        for (int i = 0; i < numNodes; i++) {
             visitados[i] = false;
             costes[i] = matrix[ini][i];
             ultimo[i] = matrix[ini][i] < 100000 ? ini : 0;
         }
-
+        //inicializamos la posicion 
         visitados[ini] = true;
         costes[ini] = 0;
-
         ultimo[ini] = 0;
 
         // marcar los n-1 vertices
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < numNodes - 1; i++) {
 
             int v;
             for (v = 0; (v < visitados.length) && (visitados[v]); v++) {
             }
 
+            
             int men = v;
 
             for (; v < visitados.length; v++) {
-                int rand = (int) (MyRandom.nextInt(1000)) % 2;
+                int rand = (int) (MyRandom.getInstance().nextInt(1000)) % 2;
                 if (!(visitados[v]) && (costes[v] < costes[men]) && (costes[v] > 0) && rand != 0) {
                     men = v;
+                    break;
                 }
             }
+            
             visitados[men] = true;
             //actualiza la distancia de vertices no marcados
             if (costes[men] == -1) {
                 continue;
             }
-            for (int w = 0; w < n; w++) {
+            for (int w = 0; w < numNodes; w++) {
                 if (!visitados[w]) {
                     if ((matrix[men][w] == -1)) {
                         continue;

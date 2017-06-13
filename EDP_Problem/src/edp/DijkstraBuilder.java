@@ -52,6 +52,7 @@ public class DijkstraBuilder implements Builder {
             for (; v < visitados.length; v++) {
                 if (!(visitados[v]) && (costes[v] < costes[men]) && (costes[v] > 0)) {
                     men = v;
+                    break;
                 }
             }
             visitados[men] = true;

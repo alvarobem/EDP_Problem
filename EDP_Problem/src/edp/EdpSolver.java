@@ -109,7 +109,6 @@ public class EdpSolver {
         Scanner sn = new Scanner(System.in);
         boolean useMeta= true;
         
-        
         System.out.println("Seleccione la metaheurística que desea usar");
         System.out.println("Pulse 1 para GRASP");
         System.out.println("Pulse 2 para VNS");
@@ -126,7 +125,7 @@ public class EdpSolver {
         switch (selectedOption){
             case "1":
                 nameAlgoritm = "GRASP";
-                algorithm = new GraspAlgorithm.Creator(localSearch).numRep(1).create();
+                algorithm = new GraspAlgorithm.Creator(localSearch).numRep(10).create();
                 solution = new Solution();
                 break;
             case "2": 
@@ -167,10 +166,10 @@ public class EdpSolver {
             nameOutput = nameOutput.replace("/", ".");
             if(!edp.solve(edp.graphs.get(i), edp.files.get(i), nameOutput, nameAlgoritm )){
                 break;
-            }
-        }
+            } 
+            MyRandom.getInstance().restartRandom();
+        }     
         
-       
     }
     
 }

@@ -41,10 +41,12 @@ public class Utils {
     public static void printPaths (int[] preds, int origen, int dest, int[] distancias, ArrayList<Integer> del, Solution s) {
          if (distancias[dest]>=100000||distancias[dest]<0){ /*valor tomado como infinito*/
             s.addNotConn();
+            s.addPairNotConn(origen, dest);
          }
          else{
             printOnePath(preds,origen,dest, del);
             s.addConn();
+            s.reovePairNotConn(origen, dest);
          }
    }
    

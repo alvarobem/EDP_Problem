@@ -1,6 +1,7 @@
 package edp;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -10,6 +11,7 @@ public class Solution {
     private int conn;
     private int notConn;
     private ArrayList<ArrayList<Integer>> routes;
+    private List <int[]> pairsNotConn;
     private double time;
     Instance i ;
     
@@ -17,6 +19,7 @@ public class Solution {
         conn=0;
         notConn=0;
         routes= new ArrayList<> ();
+        pairsNotConn = new ArrayList<>();
         time= 0 ;
         i = null;
     }
@@ -25,10 +28,15 @@ public class Solution {
         this.conn=solution.getConn();
         this.notConn = solution.getNotConn();
         this.routes = new ArrayList<>();
+        this.pairsNotConn = new ArrayList<>();
         this.routes.addAll(solution.getRoutes());
+        this.pairsNotConn.addAll(solution.getPairsNotConn());
         this.i=null;
     }
 
+    public List<int[]> getPairsNotConn() {
+        return pairsNotConn;
+    }
 
     public double getTime() {
         return time;
@@ -171,6 +179,7 @@ public class Solution {
         int[] pair = new int [2];
         pair [0] = route.get(0);
         pair[1]= route.get(route.size()-1);
+        
         int [][] ad =this.i.getG().getAdjacent();
         for(int i =0 ; i<route.size()-1; i++){
             int node1 = route.get(i);
@@ -196,6 +205,7 @@ public class Solution {
         this.conn--;
         this.notConn++;
         this.i.getG().setAdjacent(ad);
+        this.addPairNotConn(pair[0], pair[1]);
         return pair;
     }
     
@@ -214,5 +224,39 @@ public class Solution {
             }
         }
         return connected;
+    }
+    
+    public void addPairNotConn (int a, int b){
+        int [] pair = new int [2];
+        pair[0]= a;
+        pair[1]=b;
+        boolean found=false;
+        int pos = 0;
+        while (!found && pos < pairsNotConn.size()){
+            if (isEqualPair(pair, pairsNotConn.get(pos))){
+                found = true;
+            }
+            pos++;
+        }
+        if (!found){
+            pairsNotConn.add(pair);
+        }
+    }
+    
+    public void reovePairNotConn (int a, int b){
+        int [] pair = new int [2];
+        pair[0]= a;
+        pair[1]=b;
+        boolean found=false;
+        int pos = 0;
+        while (!found && pos < pairsNotConn.size()){
+            if (isEqualPair(pair, pairsNotConn.get(pos))){
+                found = true;
+            }
+            pos++;
+        }
+        if (found){
+            pairsNotConn.remove(pos-1);
+        }
     }
 }

@@ -44,19 +44,18 @@ public class GraspAlgorithm  implements Algorithm{
     @Override
     public Solution solve(Instance instance, Solution solution) {
             Solution bestSolution = new Solution();
-            Instance solutionInstance = new Instance(instance);
-            bestSolution.setI(solutionInstance);
+            bestSolution.setI(new Instance(instance));
             //create the first solution
             builder.setIsFirstSolution(true);
             bestSolution=builder.build(0, numRep, bestSolution);
             builder.setIsFirstSolution(false);
         for (int contRep = 0; contRep < numRep; contRep++) {
-            Solution partialSolution = new Solution(bestSolution);
-            partialSolution.setI(new Instance(bestSolution.getI()));
+            //Solution partialSolution = new Solution(bestSolution);
+            //partialSolution.setI(new Instance(bestSolution.getI()));
             //Instance instanceCopy = bestSolution.getI();
             //Local Search
-            localSearch = new prueba();
-            partialSolution= localSearch.improvementSolution(partialSolution, numRep, builder, 1);
+            //localSearch = new prueba();
+            Solution partialSolution= localSearch.improvementSolution(bestSolution, numRep, builder, 1);
             //bestSolution.setI(instanceCopy);
             solution = partialSolution.whoIsBetter(solution);
             

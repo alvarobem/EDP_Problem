@@ -53,7 +53,6 @@ public class VnsAlgorithm implements Algorithm{
         
         if (solution == null) {
             //create the first solution
-            System.out.println("Creando la primera solución");
             solution = new Solution();
             solution.setI(new Instance(instance));
             builder.setIsFirstSolution(true);
@@ -64,7 +63,6 @@ public class VnsAlgorithm implements Algorithm{
         double kMaxAux = solution.getConn() * percentage;
         int kMax = (int) kMaxAux;
         int i = 1;
-        System.out.println("Haciendo VNS...");
         while (i <= kMax) {
             Solution VNSBestSolution = localSearch.improvementSolution(solution, numRep, builder, i);
             if (!solution.isBetterOrEqual(VNSBestSolution)) {
